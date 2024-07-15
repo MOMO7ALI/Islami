@@ -9,7 +9,7 @@ class Home extends StatelessWidget {
     return  Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Islami'),
+        title: Text('Islami')
 
 
       ),
