@@ -2,6 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:islami/my_theme_data.dart';
+import 'package:provider/provider.dart';
+
+import '../../providers/my_provider.dart';
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
@@ -30,6 +34,7 @@ class _SebhaTabState extends State<SebhaTab> {
 
   @override
   Widget build(BuildContext context) {
+    var provi= Provider.of<MyProvider>(context);
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -38,25 +43,25 @@ class _SebhaTabState extends State<SebhaTab> {
             alignment: Alignment.topCenter,
             children: [
               Container(
-                margin: EdgeInsets.only(top: 106),
+                margin: const EdgeInsets.only(top: 106),
                 child: Transform.rotate(
                   angle: routationAngle,
                   child: Image.asset(
-                    'assets/images/body_sebha.png',
+                    provi.mode==ThemeMode.light?'assets/images/body_sebha.png':'assets/images/body_sebha_dark.png',
                     height: 234,
                   ),
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 28, left: 45),
+                margin: const EdgeInsets.only(top: 28, left: 45),
                 child: Image.asset(
-                  'assets/images/head_sebha_logo.png',
+                  provi.mode==ThemeMode.light? 'assets/images/head_sebha_logo.png':'assets/images/head_sebha_dark.png',
                   height: 105,
                 ),
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Center(
@@ -68,15 +73,15 @@ class _SebhaTabState extends State<SebhaTab> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Container(
             width: 69,
             height: 81,
-            margin: EdgeInsets.only(left: 150, right: 150),
+            margin: const EdgeInsets.only(left: 150, right: 150),
             decoration: BoxDecoration(
-                color: Color(0xFFcab597),
+                color: provi.mode==ThemeMode.light?primaryColor:primaryDarkColor,
                 borderRadius: BorderRadius.circular(25)),
             child: Center(
               child: Text(
@@ -88,7 +93,7 @@ class _SebhaTabState extends State<SebhaTab> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -96,17 +101,17 @@ class _SebhaTabState extends State<SebhaTab> {
             child: ElevatedButton(
                 onPressed: tesbeehCount,
                 style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                    backgroundColor: Color(0xFFB7935F)),
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    backgroundColor: provi.mode==ThemeMode.light?primaryColor:yellowColor),
                 child: Text(
                   tasbeehText[currentIndex],
                   style: GoogleFonts.inter(
                       fontSize: 25,
                       fontWeight: FontWeight.w400,
-                      color: Colors.white),
+                      color: provi.mode==ThemeMode.light?Colors.white:Colors.black),
                 )),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
         ],
