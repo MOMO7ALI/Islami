@@ -1,89 +1,83 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/home/taps/ahadeth.dart';
 import 'package:islami/home/taps/quran.dart';
 import 'package:islami/home/taps/radio.dart';
 import 'package:islami/home/taps/sebha.dart';
 import 'package:islami/home/taps/setting.dart';
+import 'package:islami/providers/my_provider.dart';
+import 'package:provider/provider.dart';
+
 
 class Home extends StatefulWidget {
   static const String routeName = 'Home';
 
- Home({super.key});
+  Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-int selectedIndex =0;
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<MyProvider>(context);
     return Stack(
       children: [
-        Image.asset("assets/images/main_bg.png"),
+        Image.asset(
+         provider.mode==ThemeMode.light? "assets/images/main_bg.png":"assets/images/dark_bg.png",
+          width: double.infinity,
+          fit: BoxFit.fill,
+        ),
         Scaffold(
-          backgroundColor: Colors.transparent,
           appBar: AppBar(
-            elevation: 0,
-              backgroundColor: Colors.transparent,
-              centerTitle: true,
+              elevation: 0,
               title: Text(
-                'إسلامي ',
-                style: GoogleFonts.elMessiri(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w700,
-                ),
+                "islami".tr(),style: Theme.of(context).textTheme.bodyLarge,
               )),
           body: tabs[selectedIndex],
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: selectedIndex,
-            onTap: (value){
-              selectedIndex=value;
-              setState(() {
-
-              });
-
+            onTap: (value) {
+              selectedIndex = value;
+              setState(() {});
             },
-            backgroundColor: Color(0xFFB7935F),
-            type: BottomNavigationBarType.shifting,
-            selectedItemColor: Colors.black,
-            unselectedItemColor: Colors.white,
-            showUnselectedLabels: false,
-            showSelectedLabels: true,
+
             items: [
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage('assets/images/quran.png')),backgroundColor: Color(0xFFB7935F),
+                  icon: ImageIcon(AssetImage('assets/images/quran.png')),
+
                   label: "القرآن"),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage('assets/images/sebha.png')),backgroundColor: Color(0xFFB7935F),
-                  label: "التسبيح"),
+                  icon: ImageIcon(AssetImage('assets/images/sebha.png')),
 
+                  label: "التسبيح"),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage('assets/images/radio.png')),backgroundColor: Color(0xFFB7935F),
+                  icon: ImageIcon(AssetImage('assets/images/radio.png')),
+
                   label: "الراديو"),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage('assets/images/ahadeth.png')),backgroundColor: Color(0xFFB7935F),
+                  icon: ImageIcon(AssetImage('assets/images/ahadeth.png')),
+
                   label: "احاديث"),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.settings
-                  ),backgroundColor: Color(0xFFB7935F),
-                  label: "الاعدادات "),
+                  icon: Icon(Icons.settings),
 
+                  label: "الاعدادات "),
             ],
           ),
         ),
       ],
     );
   }
-  List<Widget> tabs=[
+
+  List<Widget> tabs = [
     QuranTab(),
     SebhaTab(),
     RadioTab(),
     AhadethTab(),
     Setting(),
-
   ];
 }
-

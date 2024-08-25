@@ -1,7 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:islami/my_theme_data.dart';
 import 'package:islami/sura_details.dart';
+import 'package:provider/provider.dart';
 
+import '../../providers/my_provider.dart';
 import '../../sura_model.dart';
 
 class QuranTab extends StatelessWidget {
@@ -243,6 +247,7 @@ class QuranTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var prov= Provider.of<MyProvider>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -250,50 +255,27 @@ class QuranTab extends StatelessWidget {
           'assets/images/quran_logo.png',
           height: 227,
         ),
-        Divider(
-          thickness: 3,
-          color: Color(0xFFB7935F),
-        ),
-        IntrinsicHeight(
-          child: Row(
-            children: [
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("عدد الايات",
-                        style: GoogleFonts.elMessiri(
-                            fontSize: 25, fontWeight: FontWeight.w600)),
-                  ],
-                ),
-              ),
-              VerticalDivider(
-                color: Color(0xFFB7935F),
-                thickness: 2,
-              ),
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("اسم السورة",
-                        style: GoogleFonts.elMessiri(
-                            fontSize: 25, fontWeight: FontWeight.w600)),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-        Divider(
-          thickness: 3,
-          color: Color(0xFFB7935F),
-        ),
+        SizedBox(height: 20,),
+
         Expanded(
-          child: ListView.separated(
-            itemCount: suraNames.length,
-            itemBuilder: (context, index) {
-              return IntrinsicHeight(
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 16.0),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text("verses".tr(), style: Theme.of(context).textTheme.bodyMedium),
+                    Text("sura_name".tr(), style: Theme.of(context).textTheme.bodyMedium),
+                  ],
+                ),
+              ),
+          Padding(
+            padding: const EdgeInsets.only(top:75),
+            child: ListView.separated(
+              itemCount: suraNames.length,
+              itemBuilder: (context, index) {
+                return Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
@@ -305,10 +287,6 @@ class QuranTab extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-                    ),
-                    VerticalDivider(
-                      color: Color(0xFFB7935F),
-                      thickness: 2,
                     ),
                     Expanded(
                       child: InkWell(
@@ -327,17 +305,43 @@ class QuranTab extends StatelessWidget {
                       ),
                     ),
                   ],
+                );
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return Divider(
+                  color: Colors.transparent,
+                );
+              },
+            ),
+          ),
+              Padding(
+                padding: const EdgeInsets.only(top:0),
+                child: Divider(
+                  thickness: 3,
                 ),
-              );
-            },
-            separatorBuilder: (BuildContext context, int index) {
-              return Divider(
-                color: Colors.transparent,
-              );
-            },
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 50),
+                child: Divider(
+                  thickness: 3,
+                ),
+              ),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: Container(
+                    child: VerticalDivider(
+                      thickness: 5,
+                      color:prov.mode==ThemeMode.light? primaryColor:yellowColor,
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ],
+
     );
   }
 }
