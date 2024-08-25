@@ -14,7 +14,7 @@ class LanguageBottomSheet extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
-              context.setLocale(Locale("ar"));
+              context.setLocale(const Locale("ar"));
               Navigator.pop(context);
             },
             child: Row(
@@ -22,14 +22,14 @@ class LanguageBottomSheet extends StatelessWidget {
               children: [
                 Text(
                   "arabic".tr(),
-                  style: context.locale == Locale("ar")
+                  style: context.locale == const Locale("ar")
                       ? Theme.of(context)
                       .textTheme
                       .bodyMedium
                       ?.copyWith(color: primaryColor)
                       : Theme.of(context).textTheme.bodyMedium?.copyWith(color: primaryDarkColor),
                 ),
-                if (context.locale == Locale("ar"))
+                if (context.locale == const Locale("ar"))
                   Icon(
                     Icons.done,
                     size: 30,
@@ -38,10 +38,10 @@ class LanguageBottomSheet extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           InkWell(
             onTap: () {
-              context.setLocale(Locale("en"));
+              context.setLocale(const Locale("en"));
               Navigator.pop(context);
             },
             child: Row(
@@ -49,14 +49,14 @@ class LanguageBottomSheet extends StatelessWidget {
               children: [
                 Text(
                   "english".tr(),
-                  style: context.locale == Locale("en")
+                  style: context.locale == const Locale("en")
                       ? Theme.of(context)
                       .textTheme
                       .bodyMedium
                       ?.copyWith(color: primaryColor)
                       : Theme.of(context).textTheme.bodyMedium?.copyWith(color: primaryDarkColor),
                 ),
-                if (context.locale == Locale("en"))
+                if (context.locale == const Locale("en"))
                   Icon(
                     Icons.done,
                     size: 30,

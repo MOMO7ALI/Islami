@@ -45,7 +45,7 @@ class _HomeState extends State<Home> {
               setState(() {});
             },
 
-            items: [
+            items: const [
               BottomNavigationBarItem(
                   icon: ImageIcon(AssetImage('assets/images/quran.png')),
 
@@ -75,9 +75,9 @@ class _HomeState extends State<Home> {
 
   List<Widget> tabs = [
     QuranTab(),
-    SebhaTab(),
-    RadioTab(),
+    const SebhaTab(),
+    const RadioTab(),
     AhadethTab(),
-    Setting(),
+    const Setting(),
   ];
 }

@@ -19,7 +19,7 @@ class RadioTab extends StatelessWidget {
 height: 222,
           ),
         ),
-        SizedBox(height: 50,),
+        const SizedBox(height: 50,),
         Center(
           child: Text(
             "إذاعة القرآن الكريم ",
@@ -29,7 +29,7 @@ height: 222,
             ),
           ),
         ),
-        SizedBox(height: 50,),
+        const SizedBox(height: 50,),
         Row(
 
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

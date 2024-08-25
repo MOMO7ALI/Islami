@@ -27,7 +27,7 @@ class _AhadethTabState extends State<AhadethTab> {
           "assets/images/hadeth_logo.png",
           height: 219,
         ),
-        Divider(
+        const Divider(
           thickness: 3,
 
         ),
@@ -45,12 +45,12 @@ class _AhadethTabState extends State<AhadethTab> {
             ),
           ],
         ),
-        Divider(
+        const Divider(
           thickness: 3,
         ),
         Expanded(
           child: ListView.separated(
-            separatorBuilder: (context,index)=>Divider(),
+            separatorBuilder: (context,index)=>const Divider(),
             itemBuilder:(context,index){
             return InkWell(
               onTap: (){

@@ -255,7 +255,7 @@ class QuranTab extends StatelessWidget {
           'assets/images/quran_logo.png',
           height: 227,
         ),
-        SizedBox(height: 20,),
+        const SizedBox(height: 20,),
 
         Expanded(
           child: Stack(
@@ -308,20 +308,20 @@ class QuranTab extends StatelessWidget {
                 );
               },
               separatorBuilder: (BuildContext context, int index) {
-                return Divider(
+                return const Divider(
                   color: Colors.transparent,
                 );
               },
             ),
           ),
-              Padding(
-                padding: const EdgeInsets.only(top:0),
+              const Padding(
+                padding: EdgeInsets.only(top:0),
                 child: Divider(
                   thickness: 3,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 50),
+              const Padding(
+                padding: EdgeInsets.only(top: 50),
                 child: Divider(
                   thickness: 3,
                 ),

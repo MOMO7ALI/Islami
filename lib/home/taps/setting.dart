@@ -20,7 +20,7 @@ class Setting extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("theme".tr()),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           InkWell(
             onTap: () {
               showModalBottomSheet(
@@ -28,12 +28,12 @@ class Setting extends StatelessWidget {
                 isScrollControlled: true,
                 context: context,
                 builder: (context) {
-                  return ThemeBottomSheet();
+                  return const ThemeBottomSheet();
                 },
               );
             },
             child: Container(
-              padding: EdgeInsets.all(12),
+              padding: const EdgeInsets.all(12),
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(22),
@@ -44,9 +44,9 @@ class Setting extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 44),
+          const SizedBox(height: 44),
           Text("language".tr()),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           InkWell(
             onTap: () {
               showModalBottomSheet(
@@ -54,12 +54,12 @@ class Setting extends StatelessWidget {
                 isScrollControlled: true,
                 context: context,
                 builder: (context) {
-                  return LanguageBottomSheet();
+                  return const LanguageBottomSheet();
                 },
               );
             },
             child: Container(
-              padding: EdgeInsets.all(12),
+              padding: const EdgeInsets.all(12),
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(22),

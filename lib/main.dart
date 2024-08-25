@@ -15,11 +15,11 @@ void main()async{
   runApp(ChangeNotifierProvider(
     create: (context) => MyProvider()..getTheme(),
       child: EasyLocalization(
-          supportedLocales: [Locale('en'), Locale('ar')],
+          supportedLocales: const [Locale('en'), Locale('ar')],
           path: 'assets/translations', // <-- change the path of the translation files
 
 
-          child: MyApp())));
+          child: const MyApp())));
 
 }
 class MyApp extends StatelessWidget {
@@ -47,8 +47,8 @@ class MyApp extends StatelessWidget {
       initialRoute:  Home.routeName,
       routes: {
         Home.routeName:(context)=>Home(),
-        SuraDetails.routeName:(context)=>SuraDetails(),
-        HadethDetails.routeName:(context)=>HadethDetails(),
+        SuraDetails.routeName:(context)=>const SuraDetails(),
+        HadethDetails.routeName:(context)=>const HadethDetails(),
 
       },
     );

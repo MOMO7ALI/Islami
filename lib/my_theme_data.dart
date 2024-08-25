@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-Color primaryColor = Color(0xFFB7935F);
-Color primaryDarkColor = Color(0xFF141A2E);
-Color blackColor = Color(0xFF242424);
-Color yellowColor = Color(0xFFFACC1D);
+Color primaryColor = const Color(0xFFB7935F);
+Color primaryDarkColor = const Color(0xFF141A2E);
+Color blackColor = const Color(0xFF242424);
+Color yellowColor = const Color(0xFFFACC1D);
 
 class MyThemeData {
   static ThemeData lightTheme = ThemeData(
@@ -57,7 +57,7 @@ class MyThemeData {
         unselectedItemColor: Colors.white,
       ),
       scaffoldBackgroundColor: Colors.transparent,
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         titleTextStyle: TextStyle(color: Colors.white),
         iconTheme: IconThemeData(size: 30, color: Colors.white),
         centerTitle: true,

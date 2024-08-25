@@ -45,8 +45,8 @@ class _SuraDetailsState extends State<SuraDetails> {
           elevation: 4,
           shape: OutlineInputBorder(
               borderRadius: BorderRadius.circular(25),
-              borderSide: BorderSide(color: Colors.transparent)),
-          margin: EdgeInsets.all(12),
+              borderSide: const BorderSide(color: Colors.transparent)),
+          margin: const EdgeInsets.all(12),
           child: ListView.builder(
             itemBuilder: (context, index) {
               return Stack(
