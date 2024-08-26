@@ -16,7 +16,6 @@ class MyProvider extends ChangeNotifier {
       notifyListeners();
 
     }
-
   }
 
   Future<void>changeTheme(ThemeMode themeMode) async {

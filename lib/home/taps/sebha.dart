@@ -10,6 +10,7 @@ import '../../providers/my_provider.dart';
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
 
+
   @override
   State<SebhaTab> createState() => _SebhaTabState();
 }
@@ -19,7 +20,7 @@ class _SebhaTabState extends State<SebhaTab> {
   int currentIndex = 0;
   double routationAngle = 0;
 
-  List<String> tasbeehText = ['سبحان الله', 'الحمد لله', 'الله اكبر'];
+  List<String> tasbeehText = ['سبحان الله', 'الحمد لله', 'لا اله الا الله','الله اكبر',];
 
   void tesbeehCount() {
     setState(() {
@@ -42,13 +43,19 @@ class _SebhaTabState extends State<SebhaTab> {
           Stack(
             alignment: Alignment.topCenter,
             children: [
-              Container(
-                margin: const EdgeInsets.only(top: 106),
-                child: Transform.rotate(
-                  angle: routationAngle,
-                  child: Image.asset(
-                    provi.mode==ThemeMode.light?'assets/images/body_sebha.png':'assets/images/body_sebha_dark.png',
-                    height: 234,
+              GestureDetector(
+                onTap: () {
+                  tesbeehCount();
+
+                },
+                child: Container(
+                  margin: const EdgeInsets.only(top: 106),
+                  child: Transform.rotate(
+                    angle: routationAngle,
+                    child: Image.asset(
+                      provi.mode==ThemeMode.light?'assets/images/body_sebha.png':'assets/images/body_sebha_dark.png',
+                      height: 234,
+                    ),
                   ),
                 ),
               ),

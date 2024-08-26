@@ -41,9 +41,9 @@ flutter_native_splash:
   # parameters from above. If the image_dark parameter is specified, color_dark or
   # background_image_dark must be specified.  color_dark and background_image_dark cannot both be
   # set.
-  #color_dark: "#042a49"
-  #background_image_dark: "assets/dark-background.png"
-  #image_dark: assets/splash-invert.png
+  color_dark: "#141A2E"
+  background_image_dark: "assets/images/bg.png"
+  image_dark: assets/images/logo.png
   #branding_dark: assets/dart_dark.png
 
   # From Android 12 onwards, the splash screen is handled differently than in previous versions.
@@ -71,8 +71,9 @@ flutter_native_splash:
   # The image_dark, color_dark, icon_background_color_dark, and branding_dark set values that
   # apply when the device is in dark mode. If they are not specified, the app will use the
   # parameters from above.
-  #image_dark: assets/android12splash-invert.png
-  #color_dark: "#042a49"
+    image_dark: assets/images/logo.png
+    background_image_dark: "assets/images/bg.png"
+    color_dark: "#141A2E"
   #icon_background_color_dark: "#eeeeee"
 
   # The android, ios and web parameters can be used to disable generating a splash screen on a given
@@ -90,7 +91,7 @@ flutter_native_splash:
   #color_web: "#42a5f5"
   #color_dark_web: "#042a49"
   #image_android: assets/splash-android.png
-  #image_dark_android: assets/splash-invert-android.png
+  image_dark_android: assets/images/logo.png
   #image_ios: assets/splash-ios.png
   #image_dark_ios: assets/splash-invert-ios.png
   #image_web: assets/splash-web.gif
